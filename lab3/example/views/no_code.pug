@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1 No Authorization Code
+
+  p We were called back by the Authorization Server, but we didn't get an Authorization Code.
+
+  p This is probably due to you selecting "implicit grant" for the response type, right?
+
+  p If you look closely on the URL which is displayed in the address bar, you will see that an access token was returned with the <b>fragment</b> (<code>#access_token=...</code>).
+
+  p This fragment data <b>never leaves the browser</b>, i.e. we cannot use it from the backend. The Implicit Grant is meant for applications which run entirely in the user agent (Single Page Applications).
+
+  p Please also go ahead and check the Access Log in the console - you will see that the part behind the hash tag does <b>not</b> make it to the backend.
+
+  a(href="/") Go home again, try again.

@@ -1,0 +1,75 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  if !user
+    p You are not logged in.
+
+    h2 Log in - specify parameters
+
+    form(action="/login" method="get")
+      label Response Type:
+      br
+      select(name="response_type")
+        option(value="code") code (authorization code)
+        option(value="token") token (implicit grant)
+
+      br
+      label Client ID:
+      br
+      input(name="client_id" value=client_id)
+      br
+      label Redirect URI:
+      br
+      input(name="redirect_uri" value="http://localhost:3000/callback")
+      br
+      label Scopes:
+      br
+      select(name="scope" multiple style="height:120px")
+        option(value="read_profile") read_profile
+        option(value="read_users") read_users
+        option(value="write_profile") write_profile
+        option(value="read_index") read_index
+        option(value="read_notes") read_notes
+        option(value="write_notes") write_notes
+
+      br
+      label Authentication Method:
+      br
+      select(name="auth_method")
+        each am in auth_methods
+          option(value=am.id)= am.title
+      br
+      button(role="submit") Go!
+
+  else
+    p You are logged in. Hello, #{user.name || user.email}.
+
+    p This is the access token which is stored in our session data:
+
+    pre= access_token
+
+    p <b>Note:</b> Usually, you would <b>never ever</b> display this data in your UI. But I hope that's clear.
+
+    hr
+
+    ul
+      li
+        a(href="profile") Get profile <code>/users/me</code>
+      li
+        a(href="index") Get notes index <code>/users/:user_id/index</code>
+
+      li
+        a(href="refresh") Refresh the token
+    hr
+
+    if grants_url
+      p To review granted access to clients, use this link:
+
+      a(href=grants_url target="_blank")= grants_url
+
+    hr
+
+    a(href="/logout") Log out.

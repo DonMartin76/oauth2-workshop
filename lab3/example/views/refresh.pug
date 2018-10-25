@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1 Refreshed Token
+
+  p Hooray, we managed to refresh the token.
+
+  p We POSTed the token refresh request to this endpoint: #{url}
+
+  p And this was the payload:
+
+  pre= token_payload
+
+  hr
+
+  p This is what the authorization server returned as access token:
+
+  pre= access_token
+
+  a(href="/") Home.

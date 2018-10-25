@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1 OAuth2 Error
+
+  p The Authorization Server sent us back with an error instead of a token or a code.
+
+  p This is what it says:
+
+  p <b>Error:</b> #{error}
+
+  p <b>Description:</b> #{error_description}
+
+  a(href="/") Go home, you're drunk

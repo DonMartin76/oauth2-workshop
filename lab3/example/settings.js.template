@@ -1,0 +1,17 @@
+module.exports = {
+    client_id: '...',
+    client_secret: '...',
+    auth_server: 'https://api.ow.donmartin76.com/auth',
+    api_name: 'markdown-notes',
+    api_base: 'https://api.ow.donmartin76.com/markdown-notes',
+    auth_methods: [
+        {
+            id: 'local',
+            title: 'Username and password'
+        },
+        {
+            id: 'github',
+            title: 'GitHub'
+        }
+    ]
+};

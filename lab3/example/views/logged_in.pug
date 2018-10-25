@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 Logged in
+
+  p Yay, we are logged in.
+
+  p This is what the authorization server returned as access token:
+
+  pre= access_token
+
+  a(href="/") Home.

@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 Logging in...
+
+  p Click this link to go to the Authorization Server:
+
+  a(href=auth_url)= auth_url
+
+  p If everything goes right, you will be called back by the Authorization Server.
+
+  p <b>Note:</b> In a normal application, you would just go directly to the Authorization Server, and not display a link/button first. This is just for demonstration purposes.

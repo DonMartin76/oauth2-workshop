@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <title>Callback!</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <h1>Callback handler</h1>
+
+    <!-- empty if no error -->
+    <span id="error"></span>
+
+    <script type="text/javascript">
+        function giveUp(message) {
+            $('#error').text(message);
+        }
+
+        $(document).ready(function () {
+            let hash = location.hash;
+            if (!hash) {
+                giveUp("Did not receive a fragment (#).");
+                return;
+            }
+            // alert(hash)
+            // console.log(hash);
+            hash = hash.substring(1);
+            const paramList = hash.split('&');
+            const paramMap = {};
+            for (let i = 0; i < paramList.length; ++i) {
+                const keyVal = paramList[i].split('=');
+                paramMap[keyVal[0]] = keyVal[1];
+            }
+
+            if (!paramMap.access_token) {
+                giveUp("Did not receive a parameter access_token in fragment (#).");
+                return;
+            }
+
+            window.localStorage.setItem('access_token', paramMap.access_token);
+
+            // Is this in an IFRAME?
+            if (window.location != window.parent.location) {
+                $('#error').text('Detected that we are running in an iframe. Done getting a new token: ' + paramMap.access_token);
+            } else {
+                // Redirect 
+                setTimeout(function () {
+                    window.location = '/app';
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+
+</html>

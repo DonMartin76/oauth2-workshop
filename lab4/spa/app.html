@@ -1,0 +1,101 @@
+<html>
+
+<head>
+    <title>This is the app</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        const base_url = 'https://api.ow.donmartin76.com/markdown-notes';
+        const logout_url = 'https://api.ow.donmartin76.com/auth/logout?redirect_uri=' + encodeURIComponent('http://localhost:3000');
+
+        function updateToken() {
+            const at = window.localStorage.getItem('access_token');
+            if (at) {
+                access_token = at;
+            }
+            $('#access_token').text(access_token);
+            $('#token').val(access_token);
+        }
+
+        function callApi() {
+            const url = $('#url').val();
+            const token = $('#token').val();
+
+            fetch(base_url + url.toString(), {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+                .then(res => res.json())
+                .then(res => {
+                    $('#response').text(JSON.stringify(res, null, 2));
+                })
+                .catch(err => {
+                    $('#response').text(err.toString());
+                });
+        }
+
+        function logout() {
+            window.localStorage.clear();
+            window.location = logout_url;
+        }
+
+        function refresh() {
+            let authUrl = window.localStorage.getItem('auth_url');
+            if (!authUrl) {
+                alert('The app does not have the Auth URL stored. Cannot refresh token.');
+                return;
+            }
+            authUrl += '&prompt=none';
+            alert(authUrl);
+            
+            const previous_token = window.localStorage.getItem('access_token');
+            $('#refresh_frame').on('load', function () {
+                const new_token = window.localStorage.getItem('access_token');
+                // Is it really new?
+                if (new_token != previous_token)
+                    updateToken();
+            });
+            // Inject location of iframe
+            $('#refresh_frame').prop('src', authUrl);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Woo!</h1>
+
+    <p>You are perhaps logged in!</p>
+
+    <p>This is your access token: <code><span id="access_token"></span></code></p>
+    <input id="token" value="">
+    <br>
+
+    <label>API URI to call:</label>
+    <input id="url" value="/users/me">
+    <br>
+    <button onClick="javascript:callApi();">Call API</button>
+
+    <pre id="response">
+    </pre>
+
+    <button onClick="javascript:refresh();">Refresh Token</button>
+    <button onClick="javascript:logout();">Log out</button>
+
+    <br>
+    <br>
+    <label>This is an <code>iframe</code> which we will use to refresh a token. Usually, you would declare it <code>display:none;</code> and keep it invisible for a silent refresh.</label>
+    <br>
+    <!-- style="display:none;" -->
+    <iframe id="refresh_frame">  
+    </iframe>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            updateToken();
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <title>World's worst SPA</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        function login() {
+            const client_id = $('#client_id').val();
+            const redirect_uri = $('#redirect_uri').val();
+            const scope = $('#scope').val();
+            let authUrl = `https://api.ow.donmartin76.com/auth/local/api/markdown-notes/authorize?response_type=token&client_id=${client_id}&redirect_uri=${encodeURIComponent(redirect_uri)}`;
+            if (scope)
+                authUrl += `&scope=${encodeURIComponent(scope)}`;
+            // Store this thing:
+            window.localStorage.setItem('auth_url', authUrl);
+            window.location = authUrl;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>World's worst SPA</h1>
+
+    <p>This is a very very very very simple SPA.</p>
+
+    <label>Client ID:</label>
+    <br>
+    <input id="client_id">
+    <br>
+    <label>Redirect URI:</label>
+    <br>
+    <input id="redirect_uri" value="http://localhost:3000/callback">
+    <br>
+    <label>Scopes:</label>
+    <br>
+    <input id="scope" value="read_profile read_index read_users read_notes">
+    
+    <br>
+    <button onClick="javascript:login();">Log in!</button>
+
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1 Received Authorization Code
+
+  p Awesome. We were called back, and we received an Authorization Code.
+
+  p Usually, you would not see this page; the backend would immediately try to exchange the authorization code for an access token, but in this case, we'll do it stepwise.
+
+  p This is the URL to which we will post the following payload to get an Access Token:
+
+  p <b>URL:</b> <code>#{token_url}</code>
+
+  p <b>Payload:</b>
+    pre= token_payload
+
+  form(action="/token" method="GET")
+    input(name="code" value=code)
+    br
+    button(role="submit") Get me the Access Token!
