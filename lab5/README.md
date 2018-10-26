@@ -75,5 +75,7 @@ So, in short, you can say having a "trusted" application means that the Authoriz
 
 **Note**: With wicked.haufe.io, this also applies to the other two flows, the Authorization Code Grant and the Implicit Grant. The "real" Markdown Notes application at [https://app.ow.donmartin76.com](https://app.ow.donmartin76.com) has a trusted subscription to the underlying API, so that the application does not have to ask for consent from the Resource Owner. This would seem very strange - the actual application begs for permission to access its own data - but actually that would be required if there wasn't the concept of trusted applications.
 
+**More note**: Once more, how this concept of "trusted" applications is implemented is not part of the actual OAuth2 RFC, so this is an implementation detail of wicked.haufe.io in this case. Other solutions will have other solutions to the same problem.
+
 ---
 [Index](../README.md)
