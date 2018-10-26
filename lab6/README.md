@@ -16,7 +16,7 @@ Once more, create a subscription for the Markdown Notes API, this time a non-tru
 
 ![Normal Subscription](images/normal-subscription.png)
 
-Go into the `lab6/scrips` directory and create a `settings.json` by copying the `settings.json.template`; open it with a text editor and enter Client ID and Client Secret from the APi subscription into this file.
+Go into the `lab6/scrips` directory and create a `settings.json` by copying the `settings.json.template`; open it with a text editor and enter Client ID and Client Secret from the API subscription into this file.
 
 ## Generate an authorize URL
 
