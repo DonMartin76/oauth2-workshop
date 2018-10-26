@@ -46,6 +46,8 @@ user@example$ npm start
 
 Open the example app at [http://localhost:3000](http://localhost:3000) (open it in a new window from here).
 
+![Markdown Test Client](images/markdown-test-client.png)
+
 ## What does the example app do?
 
 The example app shows how the Authorization Code Grant works with a classic web application (yes, this node.js app is a classical web application): Getting Authorization Codes, retrieving access and refresh tokens, and using these tokens to talk to the backend API.
@@ -76,7 +78,7 @@ This is expected - we did not ask for a scope, and thus we didn't get any.
 
 Expected outcome: The profile as a JSON representation.
 
-**Note**: The authorization server did **not** ask you to authorize the access to the API; but remember that we did that in Lab 2! The Autorization remembers that decision.
+**Note**: The authorization server did **not** ask you to authorize the access to the API; but remember that we did that in Lab 2! The authorization server remembers that decision.
 
 ### Revoke access for the application
 

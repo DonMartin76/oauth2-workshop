@@ -19,7 +19,7 @@ Okay, this was perhaps somewhat unexpected. What's that, a trusted application?
 
 ## Trusted applications
 
-There is no such thing in the RFC as a specification of a "trusted client" or "trusted application". There just is this section: https://tools.ietf.org/html/rfc6749#section-4.3
+There is no such thing in the RFC as a specification of a "trusted client" or "trusted application". There is just this section in the RFC: https://tools.ietf.org/html/rfc6749#section-4.3
 
 Excerpt from there:
 

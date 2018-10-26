@@ -1,6 +1,6 @@
 # OAuth2 Workshop
 
-This repository contains material for an OAuth2 workshop, using wicked.haufe.io as an example implementation of an OAuth2 Identity Provider.
+This repository contains material for an OAuth2 workshop, using wicked.haufe.io as an example implementation of an OAuth2 Identity Provider. **Note**: Most of the things are fairly generic, but some things are implemented in a somewhat opinionated manner. Keep in mind that wicked.haufe.io is just **one implementation** of the OAuth2 Standard. There are of course others, such as KeyCloak, but this workshop chose to illustrate OAuth2 using wicked.
 
 Most labs are built up on top of each other, so it makes sense to follow them in the designed order.
 
@@ -44,7 +44,7 @@ Lab 4 does a deep dive into how the Implicit Grant works, including how to refre
 
 ## Lab 5 - Resource Owner Password Grant
 
-Lab 5 introduces the Reosurce Owner Password Grant, explains why it's usually a bad idea to use it (except under certain circumstances). The concept of "trusted clients" is introduced.
+Lab 5 introduces the Resource Owner Password Grant, explains why it's usually a bad idea to use it (except under certain circumstances). The concept of "trusted clients" is introduced.
 
 [Lab 5 - Resource Owner Password Grant](lab5/README.md)
 

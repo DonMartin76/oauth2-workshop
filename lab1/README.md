@@ -37,9 +37,9 @@ Then register an application to play with:
 
 ![Register application](images/register-application.png)
 
-You need to choose a unique application id, so do not use `my-cc-app` as displayed in this screenshot.
+You need to choose a unique application id, so do not use `my-app` as displayed in this screenshot.
 
-Please also enter the redirect URI (even if it's not yet clear what it does, and it's not used in this lab yet) and tick the two boxes as shown in the screenshot. Use this redirect URI: `http://localhost:3000/callback` (note that it's **http**, not **https**).
+But please enter exactly this redirect URI (even if it's not yet clear what it does, and it's not used in this lab yet) and tick the two boxes as shown in the screenshot. Use this redirect URI: `http://localhost:3000/callback` (note that it's **http**, not **https**). We will get back to what the check boxes mean as well later.
 
 ## Subscribe to the API
 
@@ -65,7 +65,7 @@ Please copy/paste the Client ID and Client Secret to a separate text file.
 
 To obtain an Access Token we need to make use of the so-called "Token Endpoint". The URL of the Token Endpoint can differ highly between different implementations of Authorization Servers; they only have in common that it has to exists and how it has to react. Usually, the Token endpoint ends with `/token`.
 
-With wicked, the Token Endpoint differs depending on the type of authentication (we will get to this later), but for the Client Credentials flow we don't authenticate any users, so we can pick any, e.g. the one for the "Markdown Notes Users":
+With wicked, the Token Endpoint differs depending on the type of authentication (we will get to this later), but for the Client Credentials flow we don't authenticate any users, so we can pick any, e.g. the one for the "Username and Password":
 
 ![Token Endpoint](images/2018-10-24-12-02-01.png)
 

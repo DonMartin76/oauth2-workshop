@@ -18,7 +18,7 @@ Hit the "Markdown Notes User" button, which takes you to the login screen for th
 
 ![Create new user](images/create-new-user.png)
 
-Please click the "Create new user" (this may possibly be in German like in the screenshot) and then create a new account for use with the application. Choose some arbitrary email address, and a password. The password has to be 6 characters long. Remember the credentials, we will need them again later on; so note them alongside with the Client ID and Client Secret we created in the first lab.
+Please click the "Create new user" (this may possibly be in German like in the screenshot) and then create a new account for use with the application. Choose some arbitrary email address, and a password. The password has to be at least 6 characters long. Remember the credentials, we will need them again later on; so note them alongside with the Client ID and Client Secret we created in the first lab.
 
 ![Create account](images/create-account.png)
 
@@ -34,7 +34,7 @@ Now create a couple of notes so that your user has some data to play with:
 
 - We have used the application which belongs to the API to create some data for ourselves
 - We, in this case, are the **Resource Owners**, and the data we have created **belongs to us**
-- The Markdown Notes Application is a trusted application and can use the API without asking out permission
+- The Markdown Notes Application is a trusted application and can use the API without asking for our permission
 
 Why the last remark is important is going to be the topic of the next small experiments.
 
@@ -54,7 +54,7 @@ Now let's head back to the API Portal to see whether we can find some more infor
 
 ![Authorize endpoint](images/authorize-endpoint.png)
 
-Oh hey, it does!
+Oh hey, it does! This is a typical piece of information which belongs into the API/Resource documentation of an API. This is not specific to wicked, even though the way the information is displayed to the developer can differ between solutions. But it has to be available.
 
 ### Asking for permission to access
 
@@ -65,6 +65,8 @@ https://api.ow.donmartin76.com/auth/local/api/markdown-notes/authorize?response_
 ```
 
 This assumes that you registered `http://localhost:3000/callback` as the redirect URI of the application/client you created in Lab 1. Replace `<...>` with the Client ID of your application subscription to the Markdown Notes API.
+
+> **IMPORTANT**: We are using the `http` protocol here for demonstration purposes. In production scenarios, **all communication MUST be done over TLS**, i.e. over `https`. OAuth2 **relies** on TLS security; not using TLS/`https` opens up various attack scenarios.
 
 **Open a browser in anonymous mode** and copy/paste the URL into the browser. Remember that we need to log in interactively, and thus we need a browser.
 
