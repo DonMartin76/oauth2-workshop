@@ -21,7 +21,7 @@ In order to use the Markdown Notes API, you will have to sign up for the Markdow
 
 [Markdown Notes API Portal](https://portal.ow.donmartin76.com)
 
-Navigate to "Log In" in the menu bar and choose how you want to autheneticate to the API Portal. You have the choice using a username and password, or using your GitHub identity.
+Navigate to "Log In" in the menu bar and choose how you want to authenticate to the API Portal. You have the choice using a username and password, or using your GitHub identity.
 
 At this point of time, it does not matter which you are using. Usernames and passwords are immediately "trusted", so that you don't have to verify your email address or such, so any email address will work for logging in.
 
