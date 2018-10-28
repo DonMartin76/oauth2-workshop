@@ -8,6 +8,12 @@ If you have remarks or you have found any issues, please go ahead and file an is
 
 Martin Danielsson
 
+## Workshop slides
+
+The slides as presented in the workshop October 26th are here:
+
+[oauth2_workshop_20181026.pdf](oauth2_workshop_20181026.pdf)
+
 ## The workshop subject
 
 This workshop will be working with a very simple application called "Markdown Notes". It's a Single Page Application which allows a user to edit markdown notes and store them server side:
